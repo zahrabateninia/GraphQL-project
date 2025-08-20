@@ -9,6 +9,7 @@ import {
   createHttpLink,
   InMemoryCache
 } from '@apollo/client';
+import { BrowserRouter } from 'react-router-dom';
 
 // run graphql server on http://localhost:4000
 const httpLink = createHttpLink({
@@ -23,11 +24,14 @@ const client = new ApolloClient({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ApolloProvider client={client}>
-    <App />
-  </ApolloProvider>,
+  <BrowserRouter>
+    <ApolloProvider client={client}>
+      <App />
+    </ApolloProvider>
+  </BrowserRouter>,
   document.getElementById('root')
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
