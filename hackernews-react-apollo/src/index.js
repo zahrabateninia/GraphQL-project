@@ -15,14 +15,14 @@ const httpLink = createHttpLink({
   uri: 'http://localhost:4000'
 });
 
-// initiate apollo client
+// instantiate apollo client
 const client = new ApolloClient({
   link: httpLink,
   cache: new InMemoryCache()
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-ReactDOM.render(
+root.render(
   <ApolloProvider client={client}>
     <App />
   </ApolloProvider>,
